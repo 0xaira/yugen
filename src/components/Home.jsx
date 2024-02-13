@@ -1,10 +1,17 @@
 import React from 'react';
-
+import Header from './Header';
+import Hero from './Hero';
+import Services from './Services';
+import Trusted from './Trusted';
 const Home = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className='font-bold text-9xl text-purple-500'>𝒴𝓊𝑔𝑒𝓃</h1>
-    </div>
+    <>
+      <Header />
+      <Hero />
+      <Services />
+      <Trusted />
+    </>
+
   );
 }
 
