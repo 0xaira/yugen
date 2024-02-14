@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = () => {
-
     const [nav, setNav] = useState(false);
-
+    const cartItems = useSelector((state) => state.cart.items.length);
 
     const handleNav = () => {
         setNav(!nav);
@@ -43,8 +43,8 @@ const Navbar = () => {
                     Cart
                 </li>
                 <span className="w-6 h-6 mb-4 flex items-center justify-center bg-black text-white rounded-full hover:bg-purple-500">
-                12
-              </span>
+                    {cartItems}
+                </span>
 
             </ul>
 
@@ -65,38 +65,40 @@ const Navbar = () => {
                 <h1 className='w-full text-3xl font-bold text-purple-500 m-4'>Yugen.</h1>
 
                 {/* Mobile Navigation Items */}
+
+                <li
+
+                    className='p-4 border-b rounded-xl hover:text-purple-500   cursor-pointer border-gray-600'
+                >
+                    Home
+                </li>
+                <li
+
+                    className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
+                >
+                    About
+                </li>
+                <li
+
+                    className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
+                >
+                    Products
+                </li>
+                <li
+
+                    className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
+                >
+                    Contact
+                </li>
                 
-                    <li
-                       
-                        className='p-4 border-b rounded-xl hover:text-purple-500   cursor-pointer border-gray-600'
-                    >
-                        Home
-                    </li>
-                    <li
-                       
-                       className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
-                   >
-                       About
-                   </li>
-                   <li
-                       
-                       className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
-                   >
-                       Products
-                   </li>
-                   <li
-                       
-                       className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
-                   >
-                       Contact
-                   </li>
-                   <li
-                       
-                       className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white'
-                   >
-                       Cart
-                   </li>
-               
+                    <li className='p-4 border-b rounded-xl hover:bg-purple-500   cursor-pointer border-gray-600 text-white '>
+                        Cart
+                        </li>
+                        <span className="w-6 h-6 mb-4 flex items-center justify-center bg-black text-white rounded-full hover:bg-purple-500">
+                            {cartItems}
+                        </span>
+            
+
             </ul>
         </div>
     );
