@@ -33,6 +33,9 @@ const FeaturedProducts = () => {
     dispatch(addItem(product));
   };
 
+  // Slice the products array to display only the first three items
+  const displayedProducts = products.slice(0, 3);
+
   return (
     <div className="container mx-auto py-12">
       <h2 className="text-3xl font-semibold text-center mb-6">Featured Products</h2>
@@ -40,7 +43,7 @@ const FeaturedProducts = () => {
         <p className="text-center">Loading...</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {displayedProducts.map((product) => (
             <div key={product.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
               <Link to={`/products/${product.id}`}>
                 <img src={product.image} alt={product.title} className="w-full h-64 object-cover" />
